@@ -9,7 +9,5 @@ services:
     links:
       - eqtl_mongodb
   eqtl_mongodb:
-    image: "mongo:3.4.10"
-    command: --dbpath /usr/share/mongo_data --wiredTigerEngineConfigString="cache_size=200MB"
-    #volumes:
-    # - /Users/roman/ebrowser/mongodb_new_data:/usr/share/mongo_data
+    image: krrome/eqtlbrowser_mongo:3.4.10
+    command:  --wiredTigerEngineConfigString="cache_size=200MB"
