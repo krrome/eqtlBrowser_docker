@@ -2,6 +2,9 @@ import sys
 import os
 import yaml
 
+def cut_last_folder(fname):
+	return "/".join(fname.split("/")[:-1])
+
 if __name__ == "__main__":
 	wd = sys.argv[1]
 
@@ -14,13 +17,13 @@ if __name__ == "__main__":
 		os.system("python google_drive.py 1IHNAQDnLS-QwbINJtnxxR0_azAFzNAzL "+static_zip)
 		if os.path.exists(static_folder):
 			os.unlink(static_folder)
-		os.system("unzip {0} -d {1}".format(static_zip, static_folder))
+		os.system("unzip {0} -d {1}".format(static_zip, cut_last_folder(static_folder)))
 
 	if not os.path.exists(mongo_zip):
 		os.system("python google_drive.py 1Jp0FwVb46RXVsbtcxHyzIzoEYSueIg67 "+mongo_zip)
 		if os.path.exists(mongo_folder):
 			os.unlink(mongo_folder)
-		os.system("unzip {0} -d {1}".format(mongo_zip, mongo_folder))
+		os.system("unzip {0} -d {1}".format(mongo_zip, cut_last_folder(mongo_folder)))
 
 	
 	with open("docker-compose-template.yaml", "r") as ifh:
