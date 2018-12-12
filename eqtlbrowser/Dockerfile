@@ -1,4 +1,4 @@
-FROM krrome/conda3.7-uwsgi-nginx-flask-mongo:3.4.10
+FROM krrome/conda3.7-uwsgi-nginx-flask-mongo
 MAINTAINER Roman Kreuzhuber
 
 
