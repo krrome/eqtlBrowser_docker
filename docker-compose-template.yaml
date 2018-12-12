@@ -1,13 +1,7 @@
 version: '3'
 services:
-  eqtl_flask:
-    image: krrome/eqtlbrowser_docker
-    ports:
-      - "5000:80"
+  full_ebrowser:
+    image: krrome/eqtlbrowser:3.4.10
     environment:
       - STATIC_PATH=/app/app/static
-    links:
-      - eqtl_mongodb
-  eqtl_mongodb:
-    image: krrome/eqtlbrowser_mongo:3.4.10
-    command:  --wiredTigerEngineConfigString="cache_size=200MB"
+      - MONGO_HOST=127.0.0.1

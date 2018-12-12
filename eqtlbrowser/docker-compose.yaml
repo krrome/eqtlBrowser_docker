@@ -1,0 +1,11 @@
+services:
+  full_ebrowser:
+    environment:
+    - STATIC_PATH=/app/app/static
+    - MONGO_HOST=localhost
+    image: eqtlbrowser
+    ports:
+    - 5000:80
+    volumes:
+    - /Users/roman/ebrowser/todel_installation/static:/etc/eqtl_browser/eqtlBrowser/ebrowse/static
+version: '3'
