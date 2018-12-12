@@ -37,12 +37,12 @@ if __name__ == "__main__":
 
 
     # set the static volume link in the docker-compose file
-    extend_if_exists(compose_template['services']['eqtl_flask'], 'volumes', ["{0}:{1}".format(static_folder, "/etc/eqtl_browser/eqtlBrowser/ebrowse/static")])
+    extend_if_exists(compose_template['services']['full_ebrowser'], 'volumes', ["{0}:{1}".format(static_folder, "/etc/eqtl_browser/eqtlBrowser/ebrowse/static")])
 
     if args.interfix is not None:
-        extend_if_exists(compose_template['services']['eqtl_flask'], 'environment', ["INTERFIX=%s"%args.interfix])
+        extend_if_exists(compose_template['services']['full_ebrowser'], 'environment', ["INTERFIX=%s"%args.interfix])
 
-    extend_if_exists(compose_template['services']['eqtl_flask'], 'ports', ["%d:80"%args.exp_port])
+    extend_if_exists(compose_template['services']['full_ebrowser'], 'ports', ["%d:80"%args.exp_port])
 
     with open("docker-compose.yaml", "w") as ofh:
         yaml.dump(compose_template, ofh, default_flow_style=False)
