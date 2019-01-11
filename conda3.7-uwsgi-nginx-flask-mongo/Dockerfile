@@ -214,7 +214,7 @@ COPY ./google_drive.py /etc/eqtl_browser/google_drive.py
 
 ### Download and unzip the mongodb snapshot
 RUN apt-get update && apt-get install -y zip &&\
-	python /etc/eqtl_browser/google_drive.py 1Jp0FwVb46RXVsbtcxHyzIzoEYSueIg67 /etc/eqtl_browser/mongodb_snaptshot.zip &&\
+	python /etc/eqtl_browser/google_drive.py 1833ic1dwh9ZvAUfSbMfnZN0r_c6O5ogN /etc/eqtl_browser/mongodb_snaptshot.zip &&\
 	unzip /etc/eqtl_browser/mongodb_snaptshot.zip -d /etc/eqtl_browser &&\
 	mkdir /data &&\
 	mkdir /data/db &&\
